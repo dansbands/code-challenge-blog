@@ -20,13 +20,16 @@ class PostContainer extends React.Component {
       );
   }
 
+  handleClick = e => {
+    this.setState({ new: !this.state.new })
+  }
+
   handleChange = e => {
     this.setState({
       newPost: {
         ...this.state.newPost,
         [e.target.name]: e.target.value
       }
-
     })
   }
 
@@ -35,8 +38,9 @@ class PostContainer extends React.Component {
       posts: [
         this.state.newPost,
         ...this.state.posts
-
-      ]
+      ],
+      new: false,
+      newPost: { title: "", body: ""},
     })
   }
 
@@ -59,12 +63,14 @@ class PostContainer extends React.Component {
       <div>
         <div className="Posts-header">
           <h1>Blog Posts</h1>
-          <div className="New-post-button" onClick={() => this.setState({new: true})}>
+          <div className="New-post-button" onClick={this.handleClick}>
             <h5>Write a Post</h5>
             <i className="material-icons">create</i>
           </div>
         </div>
-        <NewPost onChange={this.handleChange} onSubmit={this.handleSubmit}/>
+        {this.state.new &&
+          <NewPost onChange={this.handleChange} onSubmit={this.handleSubmit}/>
+        }
 
         {posts}
       </div>
