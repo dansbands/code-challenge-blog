@@ -37,7 +37,7 @@
 }
 
 .App-body {
-  margin: 150px 10% 0;
+  margin: 130px 10% 0;
 }
 
 .Posts-header {
@@ -66,6 +66,37 @@
 }
 
 .New-post-button:active {
+  border: 2px solid rgba(34 140 210, 1);
+  background: rgba(34,140,210, 1);
+  color: white;
+}
+
+.New-post-input {
+  padding: 10px;
+  width: 97%;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.New-post-submit-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  width: 120px;
+  border: 2px solid rgb(34 140 210);
+  color: rgb(34 140 210);
+  border-radius: 10px;
+}
+
+.New-post-submit-button:hover {
+  border: 2px solid rgba(34 140 210, 0.8);
+  background: rgba(34,140,210, 0.8);
+  color: white;
+}
+
+.New-post-submit-button:active {
   border: 2px solid rgba(34 140 210, 1);
   background: rgba(34,140,210, 1);
   color: white;

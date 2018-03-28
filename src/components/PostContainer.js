@@ -1,10 +1,15 @@
 import React from "react";
-import Post from "./Post.js";
+import Post from "./Post";
+import NewPost from "./NewPost"
 
 class PostContainer extends React.Component {
   state = {
     posts: [],
     new: false,
+    newPost: {
+      title: "",
+      body: "",
+    }
   };
 
   componentWillMount() {
@@ -13,6 +18,26 @@ class PostContainer extends React.Component {
       .then(json =>
         this.setState({posts: json})
       );
+  }
+
+  handleChange = e => {
+    this.setState({
+      newPost: {
+        ...this.state.newPost,
+        [e.target.name]: e.target.value
+      }
+
+    })
+  }
+
+  handleSubmit = e => {
+    this.setState({
+      posts: [
+        this.state.newPost,
+        ...this.state.posts
+
+      ]
+    })
   }
 
   render() {
@@ -39,6 +64,7 @@ class PostContainer extends React.Component {
             <i className="material-icons">create</i>
           </div>
         </div>
+        <NewPost onChange={this.handleChange} onSubmit={this.handleSubmit}/>
 
         {posts}
       </div>
