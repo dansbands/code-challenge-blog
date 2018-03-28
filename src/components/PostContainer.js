@@ -1,34 +1,46 @@
-import React from 'react'
-import Post from './Post.js'
+import React from "react";
+import Post from "./Post.js";
 
 class PostContainer extends React.Component {
   state = {
     posts: []
-  }
+  };
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+  componentWillMount() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
-      .then(json => this.setState({
-        posts: [
-          ...this.state.posts,
-          json
-        ]
-      }))
+      .then(json =>
+        this.setState({posts: json})
+      );
   }
 
   render() {
-    console.log("In PostContainer", this.state.posts);
-    let posts = this.state.posts.map(p => {
-      return <Post data={p} key={p.id} />
-    });
+    let posts
+    if(this.state.posts.length > 0) {
+      posts = this.state.posts.map((p, i) => {
+        return (
+          <Post
+            key={i}
+            title={p.title}
+            body={p.body}
+            />
+        );
+      });
+    }
 
     return (
       <div className="App-body">
-        <h1>Blog Posts</h1>
+        <div className="Posts-header">
+          <h1>Blog Posts</h1>
+          <div className="New-post-button" onClick={() => this.setState({new: true})}>
+            <h5>Write a Post</h5>
+            <i className="material-icons">create</i>
+          </div>
+        </div>
+
         {posts}
       </div>
-    )
+    );
   }
 }
 

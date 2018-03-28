@@ -4,8 +4,9 @@ const Post = (props) => {
   console.log("In Post", props);
 
   return (
-    <div>
-      <h1>I'm a post</h1>
+    <div className="Post-div">
+      <h2 className="Post-heading">{props.title}</h2>
+      <p>{props.body}</p>
     </div>
   )
 }

@@ -38,6 +38,46 @@
   margin: 0 10%;
 }
 
+.Posts-header {
+  height: 100px;
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.New-post-button {
+  /* padding: 10px 10px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  width: 160px;
+  border: 2px solid rgb(34 140 210);
+  color: rgb(34 140 210);
+  border-radius: 10px;
+}
+
+.New-post-button:hover {
+  border: 2px solid rgba(34 140 210, 0.8);
+  background: rgba(34,140,210, 0.8);
+  color: white;
+}
+
+.New-post-button:active {
+  border: 2px solid rgba(34 140 210, 1);
+  background: rgba(34,140,210, 1);
+  color: white;
+}
+
+.Post-heading {
+  color: rgb(34 140 210);
+}
+
+.Post-div {
+  border-bottom: 1px solid lightgray;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
