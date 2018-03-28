@@ -14,9 +14,13 @@
   color: black;
   display: flex;
   margin: 0 7%;
+}
 
-  /* justify-content: center; */
-  /* border-bottom: 3px solid rgb(34	140	210) */
+.App-header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .App-title-bar {
@@ -26,8 +30,6 @@
   height: 40px;
   background-color: rgb(34 140 210);
   box-shadow: 0 10px rgba(169,169,169,0.4);
-  /* font-family: 'Open Sans',sans-serif; */
-
 }
 
 .App-title {
@@ -35,7 +37,7 @@
 }
 
 .App-body {
-  margin: 0 10%;
+  margin: 150px 10% 0;
 }
 
 .Posts-header {
@@ -47,7 +49,6 @@
 }
 
 .New-post-button {
-  /* padding: 10px 10px; */
   display: flex;
   justify-content: space-around;
   align-items: center;

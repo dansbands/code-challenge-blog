@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Post = (props) => {
-  console.log("In Post", props);
 
   return (
     <div className="Post-div">

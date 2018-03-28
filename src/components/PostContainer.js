@@ -3,7 +3,8 @@ import Post from "./Post.js";
 
 class PostContainer extends React.Component {
   state = {
-    posts: []
+    posts: [],
+    new: false,
   };
 
   componentWillMount() {
@@ -28,8 +29,9 @@ class PostContainer extends React.Component {
       });
     }
 
+    console.log('PostContainer', this.state);
     return (
-      <div className="App-body">
+      <div>
         <div className="Posts-header">
           <h1>Blog Posts</h1>
           <div className="New-post-button" onClick={() => this.setState({new: true})}>
