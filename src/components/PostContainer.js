@@ -34,14 +34,24 @@ class PostContainer extends React.Component {
   }
 
   handleSubmit = e => {
-    this.setState({
-      posts: [
-        this.state.newPost,
-        ...this.state.posts
-      ],
-      new: false,
-      newPost: { title: "", body: ""},
-    })
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/Json',
+        'Accept': 'Application/Json',
+      },
+      body: JSON.stringify(this.state.newPost)
+    }).then(resp => resp.json())
+      .then(json => {
+        this.setState({
+          posts: [
+            json,
+            ...this.state.posts
+          ],
+          new: false,
+          newPost: { title: "", body: ""},
+        })
+      })
   }
 
   render() {

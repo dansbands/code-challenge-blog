@@ -1,9 +1,5 @@
 import React from 'react';
 
-// class NewPost extends React.Component {
-//
-// }
-
 const NewPost = props => {
   return (
     <div onChange={e => props.onChange(e)}>
