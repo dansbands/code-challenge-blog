@@ -1,6 +1,6 @@
 import React from "react";
 import Post from "./Post";
-import NewPost from "./NewPost"
+import NewPost from "./NewPost";
 
 class PostContainer extends React.Component {
   state = {
@@ -15,14 +15,12 @@ class PostContainer extends React.Component {
   componentWillMount() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
-      .then(json =>
-        this.setState({posts: json})
-      );
+      .then(json => this.setState({ posts: json }));
   }
 
   handleClick = e => {
-    this.setState({ new: !this.state.new })
-  }
+    this.setState({ new: !this.state.new });
+  };
 
   handleChange = e => {
     this.setState({
@@ -30,45 +28,40 @@ class PostContainer extends React.Component {
         ...this.state.newPost,
         [e.target.name]: e.target.value
       }
-    })
-  }
+    });
+  };
 
   handleSubmit = e => {
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'Application/Json',
-        'Accept': 'Application/Json',
-      },
-      body: JSON.stringify(this.state.newPost)
-    }).then(resp => resp.json())
+    this.state.newPost.title.length && this.state.newPost.body.length ? (
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/Json",
+          Accept: "Application/Json"
+        },
+        body: JSON.stringify(this.state.newPost)
+      })
+      .then(resp => resp.json())
       .then(json => {
         this.setState({
-          posts: [
-            json,
-            ...this.state.posts
-          ],
+          posts: [json, ...this.state.posts],
           new: false,
-          newPost: { title: "", body: ""},
-        })
+          newPost: { title: "", body: "" }
+        });
       })
-  }
+    ) : (
+      alert('Your post must have a title and a body')
+    )
+  };
 
   render() {
-    let posts
-    if(this.state.posts.length > 0) {
+    let posts;
+    if (this.state.posts.length > 0) {
       posts = this.state.posts.map((p, i) => {
-        return (
-          <Post
-            key={i}
-            title={p.title}
-            body={p.body}
-            />
-        );
+        return <Post key={i} title={p.title} body={p.body} />;
       });
     }
 
-    console.log('PostContainer', this.state);
     return (
       <div>
         <div className="Posts-header">
@@ -78,10 +71,9 @@ class PostContainer extends React.Component {
             <i className="material-icons">create</i>
           </div>
         </div>
-        {this.state.new &&
-          <NewPost onChange={this.handleChange} onSubmit={this.handleSubmit}/>
-        }
-
+        {this.state.new && (
+          <NewPost onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        )}
         {posts}
       </div>
     );
