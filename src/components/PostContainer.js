@@ -64,17 +64,20 @@ class PostContainer extends React.Component {
 
     return (
       <div>
-        <div className="Posts-header">
-          <h1>Blog Posts</h1>
-          <div className="New-post-button" onClick={this.handleClick}>
-            <h5>Write a Post</h5>
-            <i className="material-icons">create</i>
+        <div className="App-banner"></div>
+        <div className="App-container">
+          <div className="Posts-header">
+            <h1>Blog Posts</h1>
+            <button className="New-post-button" onClick={this.handleClick}>
+              Write a Post
+              <i className="material-icons">create</i>
+            </button>
           </div>
+          {this.state.new && (
+            <NewPost onChange={this.handleChange} onSubmit={this.handleSubmit} />
+          )}
+          {posts}
         </div>
-        {this.state.new && (
-          <NewPost onChange={this.handleChange} onSubmit={this.handleSubmit} />
-        )}
-        {posts}
       </div>
     );
   }

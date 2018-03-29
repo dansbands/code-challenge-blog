@@ -21,6 +21,7 @@
   top: 0;
   left: 0;
   right: 0;
+  background: white;
 }
 
 .App-title-bar {
@@ -28,7 +29,7 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  background-color: rgb(34 140 210);
+  background-color: rgb(34, 140, 210);
   box-shadow: 0 10px rgba(169,169,169,0.4);
 }
 
@@ -37,7 +38,19 @@
 }
 
 .App-body {
-  margin: 130px 10% 0;
+  margin: 130px 0;
+}
+
+.App-container {
+  margin: 0 10%;
+}
+
+.App-banner {
+  background-image: url(https://www.healthrecoverysolutions.com/hubfs/Blue%20Stethoscope%20Stock%20Image.jpg?t=1522176120066);
+  background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 295.45px;
 }
 
 .Posts-header {
@@ -54,21 +67,28 @@
   align-items: center;
   height: 40px;
   width: 160px;
-  border: 2px solid rgb(34 140 210);
-  color: rgb(34 140 210);
+  border: 2px solid rgb(34, 140, 210);
+  color: rgb(34, 140, 210);
   border-radius: 10px;
+  font-size: 16px;
 }
 
 .New-post-button:hover {
-  border: 2px solid rgba(34 140 210, 0.8);
+  border: 2px solid rgba(34, 140, 210, 0.8);
   background: rgba(34,140,210, 0.8);
   color: white;
+  cursor: pointer;
 }
 
 .New-post-button:active {
-  border: 2px solid rgba(34 140 210, 1);
+  border: 2px solid rgba(34, 140, 210, 1);
   background: rgba(34,140,210, 1);
   color: white;
+}
+
+.New-post-button:focus {
+  outline: none;
+  box-shadow: 0 0 10px 2px rgba(34, 140, 210, 0.8);
 }
 
 .New-post-input {
@@ -83,34 +103,35 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 30px;
+  height: 40px;
   width: 120px;
-  border: 2px solid rgb(34 140 210);
-  color: rgb(34 140 210);
+  border: 2px solid rgb(34, 140, 210);
+  color: rgb(34, 140, 210);
   border-radius: 10px;
+  font-size: 16px;
 }
 
 .New-post-submit-button:hover {
-  border: 2px solid rgba(34 140 210, 0.8);
+  border: 2px solid rgba(34, 140, 210, 0.8);
   background: rgba(34,140,210, 0.8);
   color: white;
+  cursor: pointer;
 }
 
 .New-post-submit-button:active {
-  border: 2px solid rgba(34 140 210, 1);
+  border: 2px solid rgba(34, 140, 210, 1);
   background: rgba(34,140,210, 1);
-  color: white;
+}
+
+.New-post-submit-button:focus {
+  box-shadow: 0 0 10px 2px rgba(34, 140, 210, 0.8);
+  outline: none;
 }
 
 .Post-heading {
-  color: rgb(34 140 210);
+  color: rgb(34, 140, 210);
 }
 
 .Post-div {
   border-bottom: 1px solid lightgray;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
