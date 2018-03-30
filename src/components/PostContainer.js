@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post";
 import NewPost from "./NewPost";
+import Api from '../services/api'
 
 class PostContainer extends React.Component {
   state = {
@@ -13,8 +14,7 @@ class PostContainer extends React.Component {
   };
 
   componentWillMount() {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then(response => response.json())
+      Api.getPosts()
       .then(json => this.setState({ posts: json }));
   }
 
@@ -33,15 +33,7 @@ class PostContainer extends React.Component {
 
   handleSubmit = e => {
     this.state.newPost.title.length && this.state.newPost.body.length ? (
-      fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "Application/Json",
-          Accept: "Application/Json"
-        },
-        body: JSON.stringify(this.state.newPost)
-      })
-      .then(resp => resp.json())
+      Api.submitPost(this.state.newPost)
       .then(json => {
         this.setState({
           posts: [json, ...this.state.posts],
