@@ -14,8 +14,8 @@ class PostContainer extends React.Component {
   };
 
   componentWillMount() {
-      Api.getPosts()
-      .then(json => this.setState({ posts: json }));
+    Api.getPosts()
+    .then(json => this.setState({ posts: json }));
   }
 
   handleClick = e => {
